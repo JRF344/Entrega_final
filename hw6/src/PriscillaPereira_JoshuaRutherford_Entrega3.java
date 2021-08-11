@@ -25,7 +25,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
         menuOption = leerRangosEnteros(1, 8);
         switch (menuOption) {
             case 1:
-                // REGISTRAR INFORMACION
+                // REGISTRAR INFORMACION Test
                 int i = 1; //Local
                 int mejor = 0;
                 int [] puntajeFinal = new int[i];
