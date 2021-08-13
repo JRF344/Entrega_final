@@ -20,6 +20,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     new InputStreamReader(System.in)
   );
   static PrintStream out = System.out;
+  private static int[] puntajeFinal;
 
   public static void main(String[] args) throws Exception {
     out.println("Escriba la cantidad de paises participantes");
@@ -35,7 +36,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     int i = 1;
     int j = 1;
     int mejor = 0;
-    int[] puntajeFinal = new int[cantidadPaises];
+    puntajeFinal = new int[cantidadPaises];
     String[] puntajeString = new String[cantidadPaises];
     String[] nombrePais = new String[cantidadPaises];
 
