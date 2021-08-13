@@ -25,7 +25,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
         menuOption = leerRangosEnteros(1, 8);
         switch (menuOption) {
             case 1:
-                // REGISTRAR INFORMACION Test
+                // REGISTRAR INFORMACION
                 int i = 1; //Local
                 int mejor = 0;
                 int [] puntajeFinal = new int[i];
@@ -64,11 +64,19 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
                 //IMPRIMIR PAIS CON MAS MEDALLAS DE PLATA
                 break;
                 
-                case 7:
+                case 4:
+                //IMPRIMIR PROMEDIO MEDALLAS DE BRONCE
+                break;
+
+                case 5:
+                //IMPRIMRIR MEDALLERO INFORMATIVO
+                break;
+                
+                case 6:
                 //MAYOR A MENOR & IMPRIMIR
                 break;
 
-                case 6:
+                case 7:
                 //MAYOR A MENOR & IMPRIMIR
                 break;
 
