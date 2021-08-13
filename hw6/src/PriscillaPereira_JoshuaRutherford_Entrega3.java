@@ -29,9 +29,9 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     int menuOption = 0;
 
     //GLOBAL VARIABLES
-    int medallasOro = 0;
-    int medallasPlata = 0;
-    int medallasBronce = 0;
+    int[] medallasOro = new int [cantidadPaises];
+    int[] medallasPlata = new int [cantidadPaises];
+    int[] medallasBronce = new int [cantidadPaises];
     int i = 1;
     int j = 1;
     int mejor = 0;
@@ -40,23 +40,26 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     String[] nombrePais = new String[cantidadPaises];
 
     //MENU OPTIONS
-    menuOption = leerRangosEnteros(1, 8);
+  out.println("Juegos Olímpicos de Tokio 2020" + "\n" + "Menu Principal");
+    menuOption = leerRangosEnteros(1, 7);
 
     switch (menuOption) {
       case 1:
         //REGISTRAR INFORMACION
+        j = 1;
 
         while (j <= cantidadPaises) {
 
           System.out.println("Ingrese el nombre del Pais " + i);
           nombrePais[j] = in.readLine();
 
-          medallasOro = MedallasOro(medallasOro);
-          medallasPlata = MedallasPlata(medallasPlata);
-          medallasBronce = MedallasBronce(medallasBronce);
+          MedallasOro(medallasOro, j);
 
-          puntajeFinal[cantidadPaises] =
-            (int) ((medallasOro * 3) + (medallasPlata * 2) + medallasBronce);
+          MedallasPlata(medallasPlata, j);
+
+          MedallasBronce(medallasBronce, j);
+
+          puntajeFinal[j] = (int) ((medallasOro[j] * 3) + (medallasPlata[j] * 2) + medallasBronce[j]);
 
           if (puntajeFinal[cantidadPaises] > mejor) {
             mejor = puntajeFinal[cantidadPaises];
@@ -100,26 +103,24 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     }
   }
 
-  // FUNCIONES
-  private static int MedallasBronce(int medallasBronce) throws IOException {
+  // METHODS
+
+  private static void MedallasBronce(int[] medallasBronce, int j) {
     System.out.println("Ingrese la cantidad de medallas de Bronce");
-    int bronceActual = Integer.parseInt(in.readLine());
-    medallasBronce += bronceActual;
-    return medallasBronce;
+    int bronceActual = leerEntero();
+    medallasBronce[j] += bronceActual;
   }
 
-  private static int MedallasPlata(int medallasPlata) throws IOException {
+  private static void MedallasPlata(int[] medallasPlata, int j) {
     System.out.println("Ingrese la cantidad de medallas de Plata");
-    int plataActual = Integer.parseInt(in.readLine());
-    medallasPlata += plataActual;
-    return medallasPlata;
+    int plataActual = leerEntero();
+    medallasPlata[j] += plataActual;
   }
 
-  private static int MedallasOro(int medallasOro) throws IOException {
+  private static void MedallasOro(int[] medallasOro, int j) {
     System.out.println("Ingrese la cantidad de medallas de Oro");
-    int oroActual = Integer.parseInt(in.readLine());
-    medallasOro += oroActual;
-    return medallasOro;
+    int oroActual = leerEntero();
+    medallasOro[j] += oroActual;
   }
 
   static int leerRangosEnteros(int inferior, int superior) {
