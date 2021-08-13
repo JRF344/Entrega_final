@@ -20,7 +20,6 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     new InputStreamReader(System.in)
   );
   static PrintStream out = System.out;
-  private static int[] puntajeFinal;
 
   public static void main(String[] args) throws Exception {
     out.println("Escriba la cantidad de paises participantes");
@@ -35,7 +34,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     int[] medallasBronce = new int [cantidadPaises];
     int j = 0;
     int mejor = 0;
-    puntajeFinal = new int[cantidadPaises];
+    int[] puntajeFinal = new int[cantidadPaises];
     String[] puntajeString = new String[cantidadPaises];
     String[] nombrePais = new String[cantidadPaises];
 
@@ -59,7 +58,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
 
           MedallasBronce(medallasBronce, j);
 
-          PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j);
+          PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j, puntajeFinal);
 
           if (puntajeFinal[j] > mejor) {
             mejor = puntajeFinal[j];
@@ -106,7 +105,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
 
   // METHODS
 
-  private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j) {
+  private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j, int[] puntajeFinal) {
     puntajeFinal[j] = (int) ((medallasOro[j] * 3) + (medallasPlata[j] * 2) + medallasBronce[j]);
   }
 
