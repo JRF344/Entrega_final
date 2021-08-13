@@ -26,15 +26,14 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     out.println("Escriba la cantidad de paises participantes");
     
     //FUNCTIONAL VARIABLES
-    int cantidadPaises = Integer.parseInt(in.readLine());
+    int cantidadPaises = leerEntero();
     int menuOption = 0;
 
     //GLOBAL VARIABLES
     int[] medallasOro = new int [cantidadPaises];
     int[] medallasPlata = new int [cantidadPaises];
     int[] medallasBronce = new int [cantidadPaises];
-    int i = 1;
-    int j = 1;
+    int j = 0;
     int mejor = 0;
     puntajeFinal = new int[cantidadPaises];
     String[] puntajeString = new String[cantidadPaises];
@@ -47,11 +46,11 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     switch (menuOption) {
       case 1:
         //REGISTRAR INFORMACION
-        j = 1;
+        j = 0;
 
-        while (j <= cantidadPaises) {
+        while (j < cantidadPaises) {
 
-          System.out.println("Ingrese el nombre del Pais " + i);
+          System.out.println("Ingrese el nombre del Pais " + (j + 1));
           nombrePais[j] = in.readLine();
 
           MedallasOro(medallasOro, j);
@@ -60,20 +59,21 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
 
           MedallasBronce(medallasBronce, j);
 
-          puntajeFinal[j] = (int) ((medallasOro[j] * 3) + (medallasPlata[j] * 2) + medallasBronce[j]);
+          PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j);
 
-          if (puntajeFinal[cantidadPaises] > mejor) {
-            mejor = puntajeFinal[cantidadPaises];
-            puntajeString[cantidadPaises] = nombrePais[cantidadPaises];
+          if (puntajeFinal[j] > mejor) {
+            mejor = puntajeFinal[j];
+            puntajeString[j] = nombrePais[j];
           }
           j++;
         }
         break;
       case 2:
         //IMPRIMIR PUNTAJE TOTAL
+        j = 0;
 
-        while (i <= cantidadPaises) {
-          System.out.println("La puntacion de " + i + ": " + nombrePais[cantidadPaises] + " es " + puntajeFinal[cantidadPaises]);
+        while (j < cantidadPaises) {
+          System.out.println("La puntacion de " + nombrePais[cantidadPaises] + " es: " + puntajeFinal[cantidadPaises]);
         }
         break;
       case 3:
@@ -105,6 +105,10 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
   }
 
   // METHODS
+
+  private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j) {
+    puntajeFinal[j] = (int) ((medallasOro[j] * 3) + (medallasPlata[j] * 2) + medallasBronce[j]);
+  }
 
   private static void MedallasBronce(int[] medallasBronce, int j) {
     System.out.println("Ingrese la cantidad de medallas de Bronce");
