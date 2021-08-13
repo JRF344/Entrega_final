@@ -23,52 +23,53 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
 
   public static void main(String[] args) throws Exception {
     out.println("Escriba la cantidad de paises participantes");
+    
+    //FUNCTIONAL VARIABLES
     int cantidadPaises = Integer.parseInt(in.readLine());
     int menuOption = 0;
+
+    //GLOBAL VARIABLES
+    int medallasOro = 0;
+    int medallasPlata = 0;
+    int medallasBronce = 0;
+    int i = 1;
+    int j = 1;
+    int mejor = 0;
+    int[] puntajeFinal = new int[cantidadPaises];
+    String[] puntajeString = new String[cantidadPaises];
+    String[] nombrePais = new String[cantidadPaises];
+
+    //MENU OPTIONS
     menuOption = leerRangosEnteros(1, 8);
 
     switch (menuOption) {
       case 1:
         //REGISTRAR INFORMACION
-        int i = 1;
-        int j = 1;
-        int mejor = 0;
-        int[] puntajeFinal = new int[i];
 
-        while (j <= i) {
-          int medallasOro = 0;
-          int medallasPlata = 0;
-          int medallasBronce = 0;
+        while (j <= cantidadPaises) {
 
           System.out.println("Ingrese el nombre del Pais " + i);
-          String[] nombrePais = new String[i];
+          nombrePais[j] = in.readLine();
 
           medallasOro = MedallasOro(medallasOro);
           medallasPlata = MedallasPlata(medallasPlata);
           medallasBronce = MedallasBronce(medallasBronce);
 
-          puntajeFinal[i] =
+          puntajeFinal[cantidadPaises] =
             (int) ((medallasOro * 3) + (medallasPlata * 2) + medallasBronce);
 
-          if (puntajeFinal[i] > mejor) {
-            mejor = puntajeFinal[i];
-            puntajeString[i] = nombrePais;
+          if (puntajeFinal[cantidadPaises] > mejor) {
+            mejor = puntajeFinal[cantidadPaises];
+            puntajeString[cantidadPaises] = nombrePais[cantidadPaises];
           }
-          k++;
+          j++;
         }
         break;
       case 2:
         //IMPRIMIR PUNTAJE TOTAL
 
         while (i <= cantidadPaises) {
-          System.out.println(
-            "La puntacion de " +
-            i +
-            ": " +
-            nombrePais[i] +
-            " es " +
-            puntajeFinal[i]
-          );
+          System.out.println("La puntacion de " + i + ": " + nombrePais[cantidadPaises] + " es " + puntajeFinal[cantidadPaises]);
         }
         break;
       case 3:
