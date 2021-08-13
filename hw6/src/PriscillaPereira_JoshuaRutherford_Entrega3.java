@@ -26,15 +26,16 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     int cantidadPaises = Integer.parseInt(in.readLine());
     int menuOption = 0;
     menuOption = leerRangosEnteros(1, 8);
+
     switch (menuOption) {
       case 1:
-        // REGISTRAR INFORMACION
+        //REGISTRAR INFORMACION
         int i = 1;
         int j = 1;
         int mejor = 0;
         int[] puntajeFinal = new int[i];
 
-        while (j <= cantidadPaises) {
+        while (j <= i) {
           int medallasOro = 0;
           int medallasPlata = 0;
           int medallasBronce = 0;
@@ -53,7 +54,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
             mejor = puntajeFinal[i];
             puntajeString[i] = nombrePais;
           }
-          i++;
+          k++;
         }
         break;
       case 2:
@@ -79,12 +80,8 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
       case 5:
         //IMPRIMRIR MEDALLERO INFORMATIVO
         System.out.println("La cantidad de medallas de Oro: " + medallasOro);
-        System.out.println(
-          "La cantidad de medallas de Plata: " + medallasPlata
-        );
-        System.out.println(
-          "La cantidad de medallas de Bronce: " + medallasBronce
-        );
+        System.out.println("La cantidad de medallas de Plata: " + medallasPlata);
+        System.out.println("La cantidad de medallas de Bronce: " + medallasBronce);
         break;
       case 6:
         //MAYOR A MENOR & IMPRIMIR
@@ -126,13 +123,7 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
     do {
       resultado = leerEntero();
       if (resultado < inferior || resultado > superior) {
-        out.println(
-          String.format(
-            "Valor fuera del rango válido [%d - %d]",
-            inferior,
-            superior
-          )
-        );
+        out.println(String.format("Valor fuera del rango válido [%d - %d]",inferior,superior));
         out.print("Digite otro valor: ");
       }
     } while (!(inferior <= resultado && resultado <= superior));
