@@ -72,7 +72,11 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
         }
         break;
       case 3:
-        //IMPRIMIR PAIS CON MAS MEDALLAS DE PLATA
+        //IMPRIMIR PAIS CON MAS MEDALLAS DE PLATA- Working on it 
+
+
+
+
         break;
       case 4:
         //IMPRIMIR PROMEDIO MEDALLAS DE BRONCE
