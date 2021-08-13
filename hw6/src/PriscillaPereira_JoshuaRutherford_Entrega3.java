@@ -26,16 +26,18 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
         switch (menuOption) {
             case 1:
                 // REGISTRAR INFORMACION
-                int i = 1; //Local
+                int i = 1;
+                int j = 1;
                 int mejor = 0;
                 int [] puntajeFinal = new int[i];
 
-                while (i <= cantidadPaises) {
+                while (j <= cantidadPaises) {
                     int medallasOro = 0;
                     int medallasPlata = 0;
                     int medallasBronce = 0;
 
-                    String nombrePais = NombrePais(i);
+                    System.out.println("Ingrese el nombre del Pais " + i);
+                    String [] nombrePais = new String [i];
 
                     medallasOro = MedallasOro(medallasOro);
                     medallasPlata = MedallasPlata(medallasPlata);
@@ -58,6 +60,10 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
                 
                 case 2:
                 //IMPRIMIR PUNTAJE TOTAL
+
+                while(i <= cantidadPaises) {
+                    System.out.println("La puntacion de " + i + ": " + nombrePais[i] + " es " + puntajeFinal[i]);
+                }
                 break;
 
                 case 3:
@@ -106,12 +112,6 @@ public class PriscillaPereira_JoshuaRutherford_Entrega3 {
         int oroActual = Integer.parseInt(in.readLine());
         medallasOro += oroActual;
         return medallasOro;
-    }
-
-    private static String NombrePais(int i) throws IOException {
-        System.out.println("Ingrese el nombre del Pais " + i);
-        String nombrePais = in.readLine();
-        return nombrePais;
     }
 
     static int leerRangosEnteros(int inferior, int superior) {
