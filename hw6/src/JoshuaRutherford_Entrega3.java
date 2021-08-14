@@ -14,7 +14,7 @@
 
 import java.io.*;
 
-public class PriscillaPereira_JoshuaRutherford_Entrega3 {
+public class JoshuaRutherford_Entrega3 {
 
   static BufferedReader in = new BufferedReader(
     new InputStreamReader(System.in)
