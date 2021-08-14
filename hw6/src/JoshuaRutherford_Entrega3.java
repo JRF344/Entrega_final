@@ -16,35 +16,33 @@ import java.io.*;
 
 public class JoshuaRutherford_Entrega3 {
 
-  static BufferedReader in = new BufferedReader(
-    new InputStreamReader(System.in)
-  );
+  static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
   static PrintStream out = System.out;
 
   public static void main(String[] args) throws Exception {
     out.println("Escriba la cantidad de paises participantes");
-    
-    //FUNCTIONAL VARIABLES
+
+    // FUNCTIONAL VARIABLES
     int cantidadPaises = leerEntero();
     int menuOption = 0;
 
-    //GLOBAL VARIABLES
-    int[] medallasOro = new int [cantidadPaises];
-    int[] medallasPlata = new int [cantidadPaises];
-    int[] medallasBronce = new int [cantidadPaises];
+    // GLOBAL VARIABLES
+    int[] medallasOro = new int[cantidadPaises];
+    int[] medallasPlata = new int[cantidadPaises];
+    int[] medallasBronce = new int[cantidadPaises];
     int j = 0;
     int mejor = 0;
     int[] puntajeFinal = new int[cantidadPaises];
     String[] puntajeString = new String[cantidadPaises];
     String[] nombrePais = new String[cantidadPaises];
 
-    //MENU OPTIONS
-  out.println("Juegos Olímpicos de Tokio 2020" + "\n" + "Menu Principal");
+    // MENU OPTIONS
+    out.println("Juegos Olímpicos de Tokio 2020" + "\n" + "Menu Principal");
     menuOption = leerRangosEnteros(1, 7);
 
     switch (menuOption) {
       case 1:
-        //REGISTRAR INFORMACION
+        // REGISTRAR INFORMACION
         j = 0;
 
         while (j < cantidadPaises) {
@@ -68,7 +66,7 @@ public class JoshuaRutherford_Entrega3 {
         }
         break;
       case 2:
-        //IMPRIMIR PUNTAJE TOTAL
+        // IMPRIMIR PUNTAJE TOTAL
         j = 0;
 
         while (j < cantidadPaises) {
@@ -76,26 +74,23 @@ public class JoshuaRutherford_Entrega3 {
         }
         break;
       case 3:
-        //IMPRIMIR PAIS CON MAS MEDALLAS DE PLATA- Working on it 
-
-
-
+        // IMPRIMIR PAIS CON MAS MEDALLAS DE PLATA
 
         break;
       case 4:
-        //IMPRIMIR PROMEDIO MEDALLAS DE BRONCE
+        // IMPRIMIR PROMEDIO MEDALLAS DE BRONCE
         break;
       case 5:
-        //IMPRIMRIR MEDALLERO INFORMATIVO
+        // IMPRIMRIR MEDALLERO INFORMATIVO
         System.out.println("La cantidad de medallas de Oro: " + medallasOro);
         System.out.println("La cantidad de medallas de Plata: " + medallasPlata);
         System.out.println("La cantidad de medallas de Bronce: " + medallasBronce);
         break;
       case 6:
-        //MAYOR A MENOR & IMPRIMIR
+        // MAYOR A MENOR & IMPRIMIR
         break;
       case 7:
-        //MAYOR A MENOR & IMPRIMIR
+        // MAYOR A MENOR & IMPRIMIR
         break;
       default:
         out.println("ERR");
@@ -105,7 +100,8 @@ public class JoshuaRutherford_Entrega3 {
 
   // METHODS
 
-  private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j, int[] puntajeFinal) {
+  private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j,
+      int[] puntajeFinal) {
     puntajeFinal[j] = (int) ((medallasOro[j] * 3) + (medallasPlata[j] * 2) + medallasBronce[j]);
   }
 
@@ -133,7 +129,7 @@ public class JoshuaRutherford_Entrega3 {
     do {
       resultado = leerEntero();
       if (resultado < inferior || resultado > superior) {
-        out.println(String.format("Valor fuera del rango válido [%d - %d]",inferior,superior));
+        out.println(String.format("Valor fuera del rango válido [%d - %d]", inferior, superior));
         out.print("Digite otro valor: ");
       }
     } while (!(inferior <= resultado && resultado <= superior));
