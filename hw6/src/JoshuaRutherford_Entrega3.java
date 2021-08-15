@@ -43,15 +43,16 @@ public class JoshuaRutherford_Entrega3 {
       TopBar();
 
 
-      /**Checklist by menu options
+      /**
+       * Checklist by menu options
        * 
-       * 1) Registrar Informacion DONE
-       * 2) Puntaje Total NOT DONE
-       * 3) Cantidad mayor de Medallas de Bronce NOT DONE
-       * 4) Promedio de Medallas de Bronce NOT DONE
-       * 5) Medallero Informativo NOT DONE
-       * 6) Posiciones Actuales NOT DONE
-       * 7) Salir DONE
+       * 1) Registrar Informacion                     DONE
+       * 2) Puntaje Total                         NOT DONE
+       * 3) Cantidad mayor de Medallas de Bronce  NOT DONE
+       * 4) Promedio de Medallas de Bronce        NOT DONE
+       * 5) Medallero Informativo                 NOT DONE
+       * 6) Posiciones Actuales                   NOT DONE
+       * 7) Salir                                     DONE
        */
 
       out.println(
