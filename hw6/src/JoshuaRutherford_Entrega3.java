@@ -37,7 +37,8 @@ public class JoshuaRutherford_Entrega3 {
     String[] nombrePais = new String[cantidadPaises];
 
     // MENU OPTIONS
-    out.println("Juegos Olímpicos de Tokio 2020" + "\n" + "Menu Principal");
+    TopBar();
+    out.println("1) Registrar Informacion");
     menuOption = leerRangosEnteros(1, 7);
 
     switch (menuOption) {
@@ -98,7 +99,12 @@ public class JoshuaRutherford_Entrega3 {
     }
   }
 
+
   // METHODS
+
+  private static void TopBar() {
+    out.println("Juegos Olímpicos de Tokio 2020" + "\n" + "Menu Principal");
+  }
 
   private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j,
       int[] puntajeFinal) {
