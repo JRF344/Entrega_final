@@ -38,29 +38,28 @@ public class JoshuaRutherford_Entrega3 {
     String[] nombrePais = new String[cantidadPaises];
 
     // MENU OPTIONS
-    TopBar();
-    out.println("1) Registrar Informacion");
-    menuOption = leerRangosEnteros(1, 8);
 
     while (exitMenu == false) {
+      TopBar();
+      out.println("1) Registrar Informacion");
+      menuOption = leerRangosEnteros(1, 8);
+
       switch (menuOption) {
         case 1:
           // REGISTRAR INFORMACION
           j = 0;
-  
+
           while (j < cantidadPaises) {
-  
+
             System.out.println("Ingrese el nombre del Pais " + (j + 1));
             nombrePais[j] = in.readLine();
-  
+
             MedallasOro(medallasOro, j);
-  
             MedallasPlata(medallasPlata, j);
-  
             MedallasBronce(medallasBronce, j);
-  
+
             PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j, puntajeFinal);
-  
+
             if (puntajeFinal[j] > mejor) {
               mejor = puntajeFinal[j];
               puntajeString[j] = nombrePais[j];
@@ -71,14 +70,15 @@ public class JoshuaRutherford_Entrega3 {
         case 2:
           // IMPRIMIR PUNTAJE TOTAL
           j = 0;
-  
+
           while (j < cantidadPaises) {
-            System.out.println("La puntacion de " + nombrePais[cantidadPaises] + " es: " + puntajeFinal[cantidadPaises]);
+            System.out.println("La puntacion de " + nombrePais[j] + " es: " + puntajeFinal[j]);
+            j++;
           }
           break;
         case 3:
           // IMPRIMIR PAIS CON MAS MEDALLAS DE PLATA
-  
+
           break;
         case 4:
           // IMPRIMIR PROMEDIO MEDALLAS DE BRONCE
@@ -86,10 +86,16 @@ public class JoshuaRutherford_Entrega3 {
         case 5:
           // IMPRIMRIR MEDALLERO INFORMATIVO
           j = 0;
+
+          
+          System.out.println("Pais" + "Medallas de oro" + "Medallas de plata" + "Medallas de bronce");
+
           while (j < cantidadPaises) {
+
             System.out.println("La cantidad de medallas de Oro: " + medallasOro[j]);
             System.out.println("La cantidad de medallas de Plata: " + medallasPlata[j]);
             System.out.println("La cantidad de medallas de Bronce: " + medallasBronce[j]);
+            j++;
           }
           break;
         case 6:
@@ -101,6 +107,7 @@ public class JoshuaRutherford_Entrega3 {
         case 8:
           // EXIT PROGRAM
           exitMenu = true;
+          break;
         default:
           out.println("ERR");
           break;
@@ -111,7 +118,7 @@ public class JoshuaRutherford_Entrega3 {
   // METHODS
 
   private static void TopBar() {
-    out.println("Juegos Olímpicos de Tokio 2020" + "\n" + "Menu Principal");
+    out.println("\n" + "Juegos Olímpicos de Tokio 2020" + "\n" + "Menu Principal");
   }
 
   private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j,
