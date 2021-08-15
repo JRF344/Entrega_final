@@ -41,8 +41,30 @@ public class JoshuaRutherford_Entrega3 {
 
     while (exitMenu == false) {
       TopBar();
-      out.println("1) Registrar Informacion");
-      menuOption = leerRangosEnteros(1, 8);
+
+
+      /**Checklist by menu options
+       * 
+       * 1) Registrar Informacion DONE
+       * 2) Puntaje Total NOT DONE
+       * 3) Cantidad mayor de Medallas de Bronce NOT DONE
+       * 4) Promedio de Medallas de Bronce NOT DONE
+       * 5) Medallero Informativo NOT DONE
+       * 6) Posiciones Actuales NOT DONE
+       * 7) Salir DONE
+       */
+
+      out.println(
+        "1) Registrar Informacion" + "\n" +
+        "2) Puntaje Total" + "\n" +
+        "3) Mayor Cantidad de Medallas de Plata" + "\n" +
+        "4) Promedio de Medallas de Bronce" + "\n" +
+        "5) Medallero Informativo" + "\n" +
+        "6) Posiciones Actuales" + "\n" +
+        "7) Salir"
+        );
+
+      menuOption = leerRangosEnteros(1, 7);
 
       switch (menuOption) {
         case 1:
@@ -102,9 +124,6 @@ public class JoshuaRutherford_Entrega3 {
           // MAYOR A MENOR & IMPRIMIR
           break;
         case 7:
-          // MAYOR A MENOR & IMPRIMIR
-          break;
-        case 8:
           // EXIT PROGRAM
           exitMenu = true;
           break;
