@@ -25,6 +25,7 @@ public class JoshuaRutherford_Entrega3 {
     // FUNCTIONAL VARIABLES
     int cantidadPaises = leerEntero();
     int menuOption = 0;
+    boolean exitMenu = false;
 
     // GLOBAL VARIABLES
     int[] medallasOro = new int[cantidadPaises];
@@ -39,66 +40,73 @@ public class JoshuaRutherford_Entrega3 {
     // MENU OPTIONS
     TopBar();
     out.println("1) Registrar Informacion");
-    menuOption = leerRangosEnteros(1, 7);
+    menuOption = leerRangosEnteros(1, 8);
 
-    switch (menuOption) {
-      case 1:
-        // REGISTRAR INFORMACION
-        j = 0;
-
-        while (j < cantidadPaises) {
-
-          System.out.println("Ingrese el nombre del Pais " + (j + 1));
-          nombrePais[j] = in.readLine();
-
-          MedallasOro(medallasOro, j);
-
-          MedallasPlata(medallasPlata, j);
-
-          MedallasBronce(medallasBronce, j);
-
-          PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j, puntajeFinal);
-
-          if (puntajeFinal[j] > mejor) {
-            mejor = puntajeFinal[j];
-            puntajeString[j] = nombrePais[j];
+    while (exitMenu == false) {
+      switch (menuOption) {
+        case 1:
+          // REGISTRAR INFORMACION
+          j = 0;
+  
+          while (j < cantidadPaises) {
+  
+            System.out.println("Ingrese el nombre del Pais " + (j + 1));
+            nombrePais[j] = in.readLine();
+  
+            MedallasOro(medallasOro, j);
+  
+            MedallasPlata(medallasPlata, j);
+  
+            MedallasBronce(medallasBronce, j);
+  
+            PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j, puntajeFinal);
+  
+            if (puntajeFinal[j] > mejor) {
+              mejor = puntajeFinal[j];
+              puntajeString[j] = nombrePais[j];
+            }
+            j++;
           }
-          j++;
-        }
-        break;
-      case 2:
-        // IMPRIMIR PUNTAJE TOTAL
-        j = 0;
-
-        while (j < cantidadPaises) {
-          System.out.println("La puntacion de " + nombrePais[cantidadPaises] + " es: " + puntajeFinal[cantidadPaises]);
-        }
-        break;
-      case 3:
-        // IMPRIMIR PAIS CON MAS MEDALLAS DE PLATA
-
-        break;
-      case 4:
-        // IMPRIMIR PROMEDIO MEDALLAS DE BRONCE
-        break;
-      case 5:
-        // IMPRIMRIR MEDALLERO INFORMATIVO
-        System.out.println("La cantidad de medallas de Oro: " + medallasOro);
-        System.out.println("La cantidad de medallas de Plata: " + medallasPlata);
-        System.out.println("La cantidad de medallas de Bronce: " + medallasBronce);
-        break;
-      case 6:
-        // MAYOR A MENOR & IMPRIMIR
-        break;
-      case 7:
-        // MAYOR A MENOR & IMPRIMIR
-        break;
-      default:
-        out.println("ERR");
-        break;
+          break;
+        case 2:
+          // IMPRIMIR PUNTAJE TOTAL
+          j = 0;
+  
+          while (j < cantidadPaises) {
+            System.out.println("La puntacion de " + nombrePais[cantidadPaises] + " es: " + puntajeFinal[cantidadPaises]);
+          }
+          break;
+        case 3:
+          // IMPRIMIR PAIS CON MAS MEDALLAS DE PLATA
+  
+          break;
+        case 4:
+          // IMPRIMIR PROMEDIO MEDALLAS DE BRONCE
+          break;
+        case 5:
+          // IMPRIMRIR MEDALLERO INFORMATIVO
+          j = 0;
+          while (j < cantidadPaises) {
+            System.out.println("La cantidad de medallas de Oro: " + medallasOro[j]);
+            System.out.println("La cantidad de medallas de Plata: " + medallasPlata[j]);
+            System.out.println("La cantidad de medallas de Bronce: " + medallasBronce[j]);
+          }
+          break;
+        case 6:
+          // MAYOR A MENOR & IMPRIMIR
+          break;
+        case 7:
+          // MAYOR A MENOR & IMPRIMIR
+          break;
+        case 8:
+          // EXIT PROGRAM
+          exitMenu = true;
+        default:
+          out.println("ERR");
+          break;
+      }
     }
   }
-
 
   // METHODS
 
