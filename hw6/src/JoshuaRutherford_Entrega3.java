@@ -43,7 +43,7 @@ public class JoshuaRutherford_Entrega3 {
 
     while (exitMenu == false) {
       TopBar();
-
+      out.println("Menu Principal");
 
       /**
        * Checklist by menu options
@@ -51,9 +51,9 @@ public class JoshuaRutherford_Entrega3 {
        * 1) Iniciar Programa                            DONE
        * 2) Rwgistrar Medallas                          DONE
        * 3) Calcular Puntaje Total                      DONE
-       * 4) Imprimir Puntaje Total                  NOT DONE
+       * 4) Imprimir Puntaje Total                      DONE
        * 5) Imprimir Pais con mas Medallas de Plata     DONE 
-       * 6) Calcular e Imprimir Promedio de Bronce  NOT DONE
+       * 6) Calcular e Imprimir Promedio de Bronce      DONE
        * 7) Medallero Informativo                       DONE
        * 8) Ordenar Puntajes de Mayor a Menor       NOT DONE
        * 9) Imprimir Puntajes de mayor a Menor      NOT DONE
@@ -73,7 +73,7 @@ public class JoshuaRutherford_Entrega3 {
         "10) Salir"
         );
 
-      menuOption = leerRangosEnteros(1, 7);
+      menuOption = leerRangosEnteros(1, 10);
 
       switch (menuOption) {
         case 1:
@@ -88,12 +88,14 @@ public class JoshuaRutherford_Entrega3 {
 
             j++;
           }
-          break;
+        break;
         case 2:
           // Registrar Medallas
           j = 0;
 
           while (j < cantidadPaises) {
+
+            System.out.println("Ingrese el las medallas de " + nombrePais[j] + "\n");
 
             MedallasOro(medallasOro, j);
             MedallasPlata(medallasPlata, j);
@@ -101,25 +103,28 @@ public class JoshuaRutherford_Entrega3 {
             
             j++;
           }
-          break;
+        break;
         case 3:
           // Calcular Puntaje Total
           j = 0;
 
           while (j < cantidadPaises) {
             PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j, puntajeFinal);
-            
-            if (medallasPlata[j] > mejor) {
-              mejor = medallasPlata[j];
-              puntajeString[j] = nombrePais[j];
-            }
 
             j++;
           }
-          break;
+
+        break;
         case 4:
           // Imprimir Puntaje Total
           j = 0;
+
+          System.out.println(String.format("%-15s%15s%n" , "Pais" , "Puntaje"));
+
+          while(j < cantidadPaises) {
+            System.out.println(String.format("|%-15s%15d|" , nombrePais[j] ,  puntajeFinal[j]));
+            j++;
+          }
           
           TopBar();
           System.out.println("Tabla de Puntajes");
@@ -131,23 +136,40 @@ public class JoshuaRutherford_Entrega3 {
             
             j++;
           }
-          break;
+
+          pause();
+        break;
         case 5:
           // Imprimir Pais con mas Medallas de Plata
           j = 0;
 
           TopBar();
+
+          mejor = CalcularMayorPlata(medallasPlata, j, mejor, puntajeString, nombrePais);
+
           System.out.println("Mayor Cantidad de Medallas de Plata");
           System.out.println(String.format("%-15s%15s%n" , "Pais" , "Medallas de Plata"));
-          while (j < cantidadPaises) {
-            System.out.println(String.format("|%-15s%15d|" , nombrePais[j] ,  medallasPlata[j]));
-            j++;
-          }
-          break;
+
+          System.out.println(String.format("|%-15s%15d|" , puntajeString ,  mejor));
+
+          pause();
+        break;
         case 6:
           // PROMEDIO DE BRONCE
-          
-          break;
+          j = 0;
+
+          double promedioBronce = 0;
+
+          while (j < cantidadPaises) {
+            promedioBronce += medallasBronce[j];
+
+            j++;
+          }
+          promedioBronce = promedioBronce / cantidadPaises;
+          System.out.println("El promedio de medallas de bronce es: " + promedioBronce);
+
+          pause();
+        break;
         case 7:
         // MEDALLERO INFORMATIVO
         j = 0;
@@ -162,8 +184,13 @@ public class JoshuaRutherford_Entrega3 {
             j++;
           }
           
-          break;
+          pause();
+        break;
         case 8:
+        // CALCULAR ORDEN;
+
+          j = InsertionSort(cantidadPaises, puntajeFinal);
+
         break;
         case 9:
         break;
@@ -173,15 +200,49 @@ public class JoshuaRutherford_Entrega3 {
           break;
         default:
           out.println("ERR");
-          break;
+          pause();
+        break;
       }
     }
   }
 
+
+  private static int InsertionSort(int cantidadPaises, int[] puntajeFinal) {
+    int j;
+    for(j = 0; j <= cantidadPaises; j++) {
+      int key = puntajeFinal[j];
+      int i = j - 1;
+      while ((i > -1) && (puntajeFinal[i] > key)) {
+        puntajeFinal[i + 1] = puntajeFinal[i];
+        i--;
+      }
+      puntajeFinal[i + 1] = key;
+    }
+    return j;
+  }
+
+
   // METHODS
 
+  private static void pause() {
+    System.out.println("Presione ENTER para continuar...");
+    try {
+      System.in.read();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  private static int CalcularMayorPlata(int[] medallasPlata, int j, int mejor, String[] puntajeString, String[] nombrePais) {
+    if (medallasPlata[j] > mejor) {
+      mejor = medallasPlata[j];
+      puntajeString[j] = nombrePais[j];
+    }
+    return mejor;
+  }
+
   private static void TopBar() {
-    out.println("\n" + "Juegos Olímpicos de Tokio 2020" + "\n" + "Menu Principal");
+    out.println("\n" + "Juegos Olímpicos de Tokio 2020");
   }
 
   private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j,
