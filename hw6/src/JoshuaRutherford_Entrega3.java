@@ -71,221 +71,221 @@ public class JoshuaRutherford_Entrega3 {
         "8) Ordenar Puntajes de Mayor a Menor" + "\n" +
         "9) Imprimir Puntajes de mayor a Menor" + "\n" +
         "10) Salir"
-        );
+      );
 
-        menuOption = leerRangosEnteros(1, 10);
+      menuOption = leerRangosEnteros(1, 10);
 
-        switch (menuOption) {
-          case 1:
+      switch (menuOption) {
+        case 1:
 
-            // Iniciar Programa
-            j = 0;
+          // Iniciar Programa
+          j = 0;
 
-            while (j < cantidadPaises) {
+          while (j < cantidadPaises) {
 
-              System.out.println("Ingrese el nombre del Pais " + (j + 1));
-              nombrePais[j] = in.readLine();
+            System.out.println("Ingrese el nombre del Pais " + (j + 1));
+            nombrePais[j] = in.readLine();
 
-              j++;
-            }
-            break;
-          case 2:
-            // Registrar Medallas
-            j = 0;
+            j++;
+          }
+          break;
+        case 2:
+          // Registrar Medallas
+          j = 0;
 
-            while (j < cantidadPaises) {
+          while (j < cantidadPaises) {
 
-              System.out.println("Ingrese el las medallas de " + nombrePais[j] + "\n");
+            System.out.println("Ingrese el las medallas de " + nombrePais[j] + "\n");
 
-              MedallasOro(medallasOro, j);
-              MedallasPlata(medallasPlata, j);
-              MedallasBronce(medallasBronce, j);
+            MedallasOro(medallasOro, j);
+            MedallasPlata(medallasPlata, j);
+            MedallasBronce(medallasBronce, j);
 
-              j++;
-            }
-            break;
-          case 3:
-            // Calcular Puntaje Total
-            j = 0;
+            j++;
+          }
+          break;
+        case 3:
+          // Calcular Puntaje Total
+          j = 0;
 
-            while (j < cantidadPaises) {
-              PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j, puntajeFinal);
+          while (j < cantidadPaises) {
+            PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j, puntajeFinal);
 
-              j++;
-            }
+            j++;
+          }
 
-            break;
-          case 4:
-            // Imprimir Puntaje Total
-            j = 0;
+          break;
+        case 4:
+          // Imprimir Puntaje Total
+          j = 0;
 
-            TopBar();
-            System.out.println(String.format("%-15s%15s%n", "Pais", "Puntaje"));
+          TopBar();
+          System.out.println(String.format("%-15s%15s%n", "Pais", "Puntaje"));
 
-            while (j < cantidadPaises) {
-              System.out.println(String.format("|%-15s%15d|", nombrePais[j], puntajeFinal[j]));
-              j++;
-            }
+          while (j < cantidadPaises) {
+            System.out.println(String.format("|%-15s%15d|", nombrePais[j], puntajeFinal[j]));
+            j++;
+          }
 
-            pause();
-            break;
-          case 5:
-            // Imprimir Pais con mas Medallas de Plata
-            j = 0;
+          pause();
+          break;
+        case 5:
+          // Imprimir Pais con mas Medallas de Plata
+          j = 0;
 
-            TopBar();
+          TopBar();
 
-            mejor = CalcularMayorPlata(medallasPlata, j, mejor, puntajeString, nombrePais);
+          mejor = CalcularMayorPlata(medallasPlata, j, mejor, puntajeString, nombrePais);
 
-            System.out.println("Mayor Cantidad de Medallas de Plata");
-            System.out.println(String.format("%-15s%15s%n", "Pais", "Medallas de Plata"));
+          System.out.println("Mayor Cantidad de Medallas de Plata");
+          System.out.println(String.format("%-15s%15s%n", "Pais", "Medallas de Plata"));
 
-            System.out.println(String.format("|%-15s%15d|", puntajeString, mejor));
+          System.out.println(String.format("|%-15s%15d|", puntajeString, mejor));
 
-            pause();
-            break;
-          case 6:
-            // PROMEDIO DE BRONCE
-            j = 0;
+          pause();
+          break;
+        case 6:
+          // PROMEDIO DE BRONCE
+          j = 0;
 
-            double promedioBronce = 0;
+          double promedioBronce = 0;
 
-            while (j < cantidadPaises) {
-              promedioBronce += medallasBronce[j];
+          while (j < cantidadPaises) {
+            promedioBronce += medallasBronce[j];
 
-              j++;
-            }
-            promedioBronce = promedioBronce / cantidadPaises;
-            System.out.println("El promedio de medallas de bronce es: " + promedioBronce);
+            j++;
+          }
+          promedioBronce = promedioBronce / cantidadPaises;
+          System.out.println("El promedio de medallas de bronce es: " + promedioBronce);
 
-            pause();
-            break;
-          case 7:
-            // MEDALLERO INFORMATIVO
-            j = 0;
-            TopBar();
-            out.println("Medallero Informativo");
-            out.print(String.format("%-15s%10s%10s%10s%n", "Pais", "Oro", "Plata", "Bronce"));
+          pause();
+          break;
+        case 7:
+          // MEDALLERO INFORMATIVO
+          j = 0;
+          TopBar();
+          out.println("Medallero Informativo");
+          out.print(String.format("%-15s%10s%10s%10s%n", "Pais", "Oro", "Plata", "Bronce"));
+          out.println();
+
+          while (j < cantidadPaises) {
+            out.print(
+                String.format("%-15s%10d%10d%10d", nombrePais[j], medallasOro[j], medallasPlata[j], medallasBronce[j]));
             out.println();
+            j++;
+          }
 
-            while (j < cantidadPaises) {
-              out.print(String.format("%-15s%10d%10d%10d", nombrePais[j], medallasOro[j], medallasPlata[j],
-                  medallasBronce[j]));
-              out.println();
-              j++;
-            }
+          pause();
+          break;
+        case 8:
+          // CALCULAR ORDEN;
 
-            pause();
-            break;
-          case 8:
-            // CALCULAR ORDEN;
+          j = InsertionSort(cantidadPaises, puntajeFinal);
 
-            j = InsertionSort(cantidadPaises, puntajeFinal);
-
-            break;
-          case 9:
-            break;
-          case 10:
-            // EXIT PROGRAM
-            exitMenu = true;
-            break;
-          default:
-            out.println("ERR");
-            pause();
-            break;
-        }
+          break;
+        case 9:
+          break;
+        case 10:
+          // EXIT PROGRAM
+          exitMenu = true;
+          break;
+        default:
+          out.println("ERR");
+          pause();
+          break;
       }
-    }
-
-    // METHODS
-
-    private static int InsertionSort(int cantidadPaises, int[] puntajeFinal) {
-      int j;
-      for (j = 0; j <= cantidadPaises; j++) {
-        int key = puntajeFinal[j];
-        int i = j - 1;
-        while ((i > -1) && (puntajeFinal[i] > key)) {
-          puntajeFinal[i + 1] = puntajeFinal[i];
-          i--;
-        }
-        puntajeFinal[i + 1] = key;
-      }
-      return j;
-    }
-
-    private static void pause() {
-      System.out.println("Presione ENTER para continuar...");
-      try {
-        System.in.read();
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-
-    private static int CalcularMayorPlata(int[] medallasPlata, int j, int mejor, String[] puntajeString,
-        String[] nombrePais) {
-      if (medallasPlata[j] > mejor) {
-        mejor = medallasPlata[j];
-        puntajeString[j] = nombrePais[j];
-      }
-      return mejor;
-    }
-
-    private static void TopBar() {
-      out.println("\n" + "Juegos Olímpicos de Tokio 2020");
-    }
-
-    private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j,
-        int[] puntajeFinal) {
-      puntajeFinal[j] = (int) ((medallasOro[j] * 3) + (medallasPlata[j] * 2) + medallasBronce[j]);
-    }
-
-    private static void MedallasBronce(int[] medallasBronce, int j) {
-      System.out.println("Ingrese la cantidad de medallas de Bronce");
-      int bronceActual = leerEntero();
-      medallasBronce[j] += bronceActual;
-    }
-
-    private static void MedallasPlata(int[] medallasPlata, int j) {
-      System.out.println("Ingrese la cantidad de medallas de Plata");
-      int plataActual = leerEntero();
-      medallasPlata[j] += plataActual;
-    }
-
-    private static void MedallasOro(int[] medallasOro, int j) {
-      System.out.println("Ingrese la cantidad de medallas de Oro");
-      int oroActual = leerEntero();
-      medallasOro[j] += oroActual;
-    }
-
-    static int leerRangosEnteros(int inferior, int superior) {
-      int resultado = 0;
-
-      do {
-        resultado = leerEntero();
-        if (resultado < inferior || resultado > superior) {
-          out.println(String.format("Valor fuera del rango válido [%d - %d]", inferior, superior));
-          out.print("Digite otro valor: ");
-        }
-      } while (!(inferior <= resultado && resultado <= superior));
-
-      return resultado;
-    }
-
-    static int leerEntero() {
-      int resultado = 0;
-      boolean bandera = false;
-
-      do {
-        try {
-          resultado = Integer.parseInt(in.readLine());
-          bandera = false;
-        } catch (Exception e) {
-          bandera = true;
-          out.println("Usted no digito un entero, intente de nuevo por favor!");
-        }
-      } while (bandera);
-
-      return resultado;
     }
   }
+
+  // METHODS
+
+  private static int InsertionSort(int cantidadPaises, int[] puntajeFinal) {
+    int j;
+    for (j = 0; j <= cantidadPaises; j++) {
+      int key = puntajeFinal[j];
+      int i = j - 1;
+      while ((i > -1) && (puntajeFinal[i] > key)) {
+        puntajeFinal[i + 1] = puntajeFinal[i];
+        i--;
+      }
+      puntajeFinal[i + 1] = key;
+    }
+    return j;
+  }
+
+  private static void pause() {
+    System.out.println("Presione ENTER para continuar...");
+    try {
+      System.in.read();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  private static int CalcularMayorPlata(int[] medallasPlata, int j, int mejor, String[] puntajeString,
+      String[] nombrePais) {
+    if (medallasPlata[j] > mejor) {
+      mejor = medallasPlata[j];
+      puntajeString[j] = nombrePais[j];
+    }
+    return mejor;
+  }
+
+  private static void TopBar() {
+    out.println("\n" + "Juegos Olímpicos de Tokio 2020");
+  }
+
+  private static void PuntajeFinal(int[] medallasOro, int[] medallasPlata, int[] medallasBronce, int j,
+      int[] puntajeFinal) {
+    puntajeFinal[j] = (int) ((medallasOro[j] * 3) + (medallasPlata[j] * 2) + medallasBronce[j]);
+  }
+
+  private static void MedallasBronce(int[] medallasBronce, int j) {
+    System.out.println("Ingrese la cantidad de medallas de Bronce");
+    int bronceActual = leerEntero();
+    medallasBronce[j] += bronceActual;
+  }
+
+  private static void MedallasPlata(int[] medallasPlata, int j) {
+    System.out.println("Ingrese la cantidad de medallas de Plata");
+    int plataActual = leerEntero();
+    medallasPlata[j] += plataActual;
+  }
+
+  private static void MedallasOro(int[] medallasOro, int j) {
+    System.out.println("Ingrese la cantidad de medallas de Oro");
+    int oroActual = leerEntero();
+    medallasOro[j] += oroActual;
+  }
+
+  static int leerRangosEnteros(int inferior, int superior) {
+    int resultado = 0;
+
+    do {
+      resultado = leerEntero();
+      if (resultado < inferior || resultado > superior) {
+        out.println(String.format("Valor fuera del rango válido [%d - %d]", inferior, superior));
+        out.print("Digite otro valor: ");
+      }
+    } while (!(inferior <= resultado && resultado <= superior));
+
+    return resultado;
+  }
+
+  static int leerEntero() {
+    int resultado = 0;
+    boolean bandera = false;
+
+    do {
+      try {
+        resultado = Integer.parseInt(in.readLine());
+        bandera = false;
+      } catch (Exception e) {
+        bandera = true;
+        out.println("Usted no digito un entero, intente de nuevo por favor!");
+      }
+    } while (bandera);
+
+    return resultado;
+  }
+}
