@@ -62,7 +62,7 @@ public class JoshuaRutherford_Entrega3 {
 
       out.println(
         "1) Iniciar Programa" + "\n" +
-        "2) Rwgistrar Medallas" + "\n" +
+        "2) Registrar Medallas" + "\n" +
         "3) Calcular Puntaje Total" + "\n" +
         "4) Imprimir Puntaje Total" + "\n" +
         "5) Imprimir Pais con mas Medallas de Plata" + "\n" +
@@ -109,8 +109,8 @@ public class JoshuaRutherford_Entrega3 {
           while (j < cantidadPaises) {
             PuntajeFinal(medallasOro, medallasPlata, medallasBronce, j, puntajeFinal);
             
-            if (puntajeFinal[j] > mejor) {
-              mejor = puntajeFinal[j];
+            if (medallasPlata[j] > mejor) {
+              mejor = medallasPlata[j];
               puntajeString[j] = nombrePais[j];
             }
 
@@ -121,37 +121,51 @@ public class JoshuaRutherford_Entrega3 {
           // Imprimir Puntaje Total
           j = 0;
           
+          TopBar();
+          System.out.println("Tabla de Puntajes");
+          System.out.println("Pais" + "PuntajeTotal");
 
           while (j < cantidadPaises) {
 
-            System.out.println("La cantidad de medallas de Oro: " + medallasOro[j]);
-            System.out.println("La cantidad de medallas de Plata: " + medallasPlata[j]);
-            System.out.println("La cantidad de medallas de Bronce: " + medallasBronce[j]);
+            System.out.println(nombrePais[j] + puntajeFinal[j]);
             
             j++;
           }
           break;
         case 5:
-          // IMPRIMRIR MEDALLERO INFORMATIVO
+          // Imprimir Pais con mas Medallas de Plata
+          j = 0;
 
+          TopBar();
+          System.out.println("Mayor Cantidad de Medallas de Plata");
+          System.out.println(String.format("%-15s%15s%n" , "Pais" , "Medallas de Plata"));
+          while (j < cantidadPaises) {
+            System.out.println(String.format("|%-15s%15d|" , nombrePais[j] ,  medallasPlata[j]));
+            j++;
+          }
           break;
         case 6:
-          // MAYOR A MENOR & IMPRIMIR
+          // PROMEDIO DE BRONCE
+          
           break;
         case 7:
         // MEDALLERO INFORMATIVO
         j = 0;
           TopBar();
           out.println("Medallero Informativo");
-          System.out.format("%15sPais" + "$15sMedallas de oro" + "$15sMedallas de plata" + "$15sMedallas de bronce");
+          out.print(String.format("%-15s%15s%15s%15s%n", "Pais" , "Medallas de oro" , "Medallas de plata" , "Medallas de bronce"));
           out.println();
 
           while (j < cantidadPaises) {
-            out.print(String.format("%10s%3d%3d%3d%n" , nombrePais[j] + medallasOro[j] + medallasPlata[j] + medallasBronce[j]));
+            out.print(String.format("%-15s%15d%15d%15d" , nombrePais[j] , medallasOro[j] , medallasPlata[j] , medallasBronce[j]));
             out.println();
           }
           
           break;
+        case 8:
+        break;
+        case 9:
+        break;
         case 10:
           // EXIT PROGRAM
           exitMenu = true;
