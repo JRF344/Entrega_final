@@ -30,13 +30,16 @@ public class JoshuaRutherford_Entrega3 {
     cantidadPaises = leerEntero();
 
     // GLOBAL VARIABLES
+    int j = 0;
+    int mejor = 0;
+    String puntajeString = "";
+
     int[] medallasOro = new int[cantidadPaises];
     int[] medallasPlata = new int[cantidadPaises];
     int[] medallasBronce = new int[cantidadPaises];
-    int j = 0;
-    int mejor = 0;
     int[] puntajeFinal = new int[cantidadPaises];
-    String[] puntajeString = new String[cantidadPaises];
+    int[] puntajeOrden = new int[cantidadPaises];
+    String[] nombreOrden = new String[cantidadPaises];
     String[] nombrePais = new String[cantidadPaises];
 
     // MENU OPTIONS
@@ -55,8 +58,8 @@ public class JoshuaRutherford_Entrega3 {
        * 5) Imprimir Pais con mas Medallas de Plata     DONE 
        * 6) Calcular e Imprimir Promedio de Bronce      DONE
        * 7) Medallero Informativo                       DONE
-       * 8) Ordenar Puntajes de Mayor a Menor       NOT DONE
-       * 9) Imprimir Puntajes de mayor a Menor      NOT DONE
+       * 8) Ordenar Puntajes de Mayor a Menor           DONE
+       * 9) Imprimir Puntajes de mayor a Menor          DONE
        * 10) Salir                                      DONE
        */
 
@@ -135,7 +138,13 @@ public class JoshuaRutherford_Entrega3 {
 
           TopBar();
 
-          mejor = CalcularMayorPlata(medallasPlata, j, mejor, puntajeString, nombrePais);
+          while (j < cantidadPaises) {
+            if (medallasPlata[j] > mejor) {
+              mejor = medallasPlata[j];
+              puntajeString = nombrePais[j];
+            }
+            j++;
+          }
 
           System.out.println("Mayor Cantidad de Medallas de Plata");
           System.out.println(String.format("%-15s%15s%n", "Pais", "Medallas de Plata"));
@@ -180,10 +189,23 @@ public class JoshuaRutherford_Entrega3 {
         case 8:
           // CALCULAR ORDEN;
 
-          j = InsertionSort(cantidadPaises, puntajeFinal);
+          CalcularOrden(cantidadPaises, puntajeFinal, puntajeOrden, nombreOrden, nombrePais);
 
           break;
         case 9:
+          // IMPRIMIR ORDEN
+          j = 0;
+
+          System.out.println("Por Orden de Puntuacion");
+          TopBar();
+          System.out.println(String.format("%-15s%15s%n", "Pais", "Puntaje"));
+
+          while (j < cantidadPaises) {
+            System.out.println(String.format("|%-15s%15d|", nombreOrden[j], puntajeOrden[j]));
+            j++;
+          }
+          
+          pause();
           break;
         case 10:
           // EXIT PROGRAM
@@ -197,20 +219,41 @@ public class JoshuaRutherford_Entrega3 {
     }
   }
 
-  // METHODS
 
-  private static int InsertionSort(int cantidadPaises, int[] puntajeFinal) {
+
+
+  // METHODS --------------------------------------------------------------------------------------
+
+
+
+
+  private static void CalcularOrden(int cantidadPaises, int[] puntajeFinal, int[] puntajeOrden, String[] nombreOrden,
+      String[] nombrePais) {
     int j;
-    for (j = 0; j <= cantidadPaises; j++) {
-      int key = puntajeFinal[j];
-      int i = j - 1;
-      while ((i > -1) && (puntajeFinal[i] > key)) {
-        puntajeFinal[i + 1] = puntajeFinal[i];
-        i--;
-      }
-      puntajeFinal[i + 1] = key;
+    j = 0;
+    while (j < cantidadPaises) {
+
+      puntajeOrden[j] = puntajeFinal[j];
+      nombreOrden[j] = nombrePais[j];
+
+      j++;
     }
-    return j;
+
+    int temp;
+    String tempName;
+    for (int i = 0; i < puntajeOrden.length; i++) {
+      for (int k = i + 1; k < puntajeOrden.length; k++) {
+        if (puntajeOrden[i] < puntajeOrden[k]) {
+          temp = puntajeOrden[i];
+          puntajeOrden[i] = puntajeOrden[k];
+          puntajeOrden[k] = temp;
+
+          tempName = nombreOrden[i];
+          nombreOrden[i] = nombreOrden[k];
+          nombreOrden[k] = tempName;
+        }
+      }
+    } // SOURCED FROM https://www.javatpoint.com/how-to-sort-an-array-in-java
   }
 
   private static void pause() {
@@ -222,14 +265,6 @@ public class JoshuaRutherford_Entrega3 {
     }
   }
 
-  private static int CalcularMayorPlata(int[] medallasPlata, int j, int mejor, String[] puntajeString,
-      String[] nombrePais) {
-    if (medallasPlata[j] > mejor) {
-      mejor = medallasPlata[j];
-      puntajeString[j] = nombrePais[j];
-    }
-    return mejor;
-  }
 
   private static void TopBar() {
     out.println("\n" + "Juegos Olímpicos de Tokio 2020");
