@@ -52,9 +52,9 @@ public class JoshuaRutherford_Entrega3 {
        * 2) Rwgistrar Medallas                          DONE
        * 3) Calcular Puntaje Total                      DONE
        * 4) Imprimir Puntaje Total                  NOT DONE
-       * 5) Imprimir Pais con mas Medallas de Plata NOT DONE 
+       * 5) Imprimir Pais con mas Medallas de Plata     DONE 
        * 6) Calcular e Imprimir Promedio de Bronce  NOT DONE
-       * 7) Medallero Informativo                   NOT DONE
+       * 7) Medallero Informativo                       DONE
        * 8) Ordenar Puntajes de Mayor a Menor       NOT DONE
        * 9) Imprimir Puntajes de mayor a Menor      NOT DONE
        * 10) Salir                                      DONE
@@ -153,12 +153,13 @@ public class JoshuaRutherford_Entrega3 {
         j = 0;
           TopBar();
           out.println("Medallero Informativo");
-          out.print(String.format("%-15s%15s%15s%15s%n", "Pais" , "Medallas de oro" , "Medallas de plata" , "Medallas de bronce"));
+          out.print(String.format("%-15s%10s%10s%10s%n", "Pais" , "Oro" , "Plata" , "Bronce"));
           out.println();
 
           while (j < cantidadPaises) {
-            out.print(String.format("%-15s%15d%15d%15d" , nombrePais[j] , medallasOro[j] , medallasPlata[j] , medallasBronce[j]));
+            out.print(String.format("%-15s%10d%10d%10d" , nombrePais[j] , medallasOro[j] , medallasPlata[j] , medallasBronce[j]));
             out.println();
+            j++;
           }
           
           break;
